@@ -396,6 +396,18 @@ code {
   padding: 1.15rem;
 }
 
+a.card {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+a.card:hover,
+a.card:focus {
+  border-color: rgba(115, 225, 212, 0.48);
+  outline: none;
+}
+
 .paper-section .card,
 .paper-section .step-card,
 .paper-section .source-panel {
@@ -423,6 +435,14 @@ code {
   font-family: var(--heading);
   font-weight: 900;
   margin-top: 1rem;
+  text-decoration: none;
+}
+
+a.card:hover .card-link,
+a.card:focus .card-link {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
 }
 
 .image-panel {
@@ -488,6 +508,18 @@ code {
 
 .paper-section .card-link {
   color: #007966;
+}
+
+.paper-section .source-panel li {
+  color: #43514d;
+}
+
+.paper-section .source-panel a {
+  color: #006c60;
+  font-weight: 900;
+  text-decoration-color: rgba(0, 108, 96, 0.45);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.16em;
 }
 
 .number {
