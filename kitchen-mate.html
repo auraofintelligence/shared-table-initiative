@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kitchen Mate as an empathetic pantry and cooking assistant for the Straddie Shared Table.">
+    <title>Kitchen Mate | Straddie Shared Table</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand-mark" href="index.html"><span>Straddie</span><span>Shared Table</span></a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="table.html">Table</a><a href="ledger.html">Ledger</a><a href="noticeboard.html">Noticeboard</a><a href="grants.html">Grants</a><a href="kitchen-mate.html" aria-current="page">Kitchen Mate</a><a href="sovereign-space-builder.html">Space Builder</a><a href="safety.html">Safety</a><a href="poster-kit.html">Poster Kit</a><a href="partner-media.html">Partner/Media</a><a href="source-map.html">Sources</a></div></nav></header>
+    <main id="main">
+      <section class="page-hero">
+        <p class="section-label">Kitchen Mate bridge</p>
+        <h1>Cook what the island has, safely and without shame.</h1>
+        <p class="hero-lede">Kitchen Mate is the pantry intelligence layer: not a bossy meal plan, but a gentle way to see what is fresh, urgent, safe and useful.</p>
+      </section>
+      <section class="section split">
+        <div>
+          <figure class="image-panel">
+            <img src="assets/kitchen-mate.webp" alt="A calm kitchen bench with pantry crates, produce and an abstract recipe assistant on a tablet.">
+            <figcaption>Generated image for Kitchen Mate as a community pantry assistant.</figcaption>
+          </figure>
+          <details class="prompt-box"><summary>Image model prompt</summary><p class="prompt-text">Photorealistic editorial website section image for Kitchen Mate as an empathetic community pantry AI assistant. Scene: kitchen bench with open fridge/pantry crates, fresh vegetables, labelled containers with no readable text, a phone or tablet showing an abstract recipe suggestion interface with no readable text, hands choosing ingredients. Mood is calm, non-judgmental, abundant but organised, not clinical. Australian coastal home or community kitchen, warm daylight, practical and realistic. No logos, no readable text, no QR codes. 16:9 landscape, high detail.</p></details>
+        </div>
+        <aside class="bridge-panel">
+          <h3>What it does in plain language</h3>
+          <ul class="bridge-list">
+            <li>Shows what the table has before food spoils.</li>
+            <li>Suggests meals from what is already available.</li>
+            <li>Respects vibe cooking instead of forcing rigid recipes.</li>
+            <li>Flags use-by risk and allergen questions before sharing.</li>
+            <li>Turns leftovers into future value, not guilt.</li>
+          </ul>
+        </aside>
+      </section>
+      <section class="section paper-section">
+        <div class="section-heading"><p class="section-label">Tiny demo</p><h2>Choose a surplus and get a table-ready idea.</h2><p>This is only a local prototype interaction, but it shows the intended tone: practical, warm and careful.</p></div>
+        <div class="planner-grid">
+          <form class="planner-panel" data-kitchen-planner>
+            <div class="control-grid">
+              <label>Surplus type<select name="surplus"><option value="leafy">Leafy greens and herbs</option><option value="fruit">Ripe fruit</option><option value="fish">Fresh fish or seafood</option><option value="pantry">Pantry staples</option></select></label>
+              <label>Cooking mood<select name="mood"><option value="warm">Warm family meal</option><option value="quick">Quick low-mess session</option><option value="youth">Youth-friendly social cook</option><option value="elder">Slow story-led meal</option></select></label>
+              <label>Contribution to log<select name="contribution"><option value="prep">Prep and cleanup</option><option value="grow">Growing or harvesting</option><option value="teach">Teaching or story sharing</option><option value="transport">Transport or setup</option></select></label>
+            </div>
+          </form>
+          <div class="output-card" data-kitchen-output></div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer"><div><p>Kitchen Mate bridge for Straddie Shared Table.</p><p class="footer-note">Food safety decisions still need human responsibility and proper review.</p></div><a href="index.html">Home</a></footer>
+    <button class="top-button" type="button" data-to-top aria-label="Back to top">Top</button>
+    <script src="script.js"></script>
+  </body>
+</html>
