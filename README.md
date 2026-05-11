@@ -4,7 +4,8 @@ Standalone static website for the Straddie Shared Table Initiative.
 
 The site connects three related ideas:
 
-- a community shared-table model for surplus food, flexible meal timing, safe cooking and local gathering
+- a modern Dig for Australia style food-resilience model for fuel/freight pressure, gardens, pantries, freezers, preserving and safe shared meals
+- a Garden Mate growing layer for backyards, balconies, schools, clubs and small-footprint food systems
 - a public/private contribution path that can point to the Strange but True Community Ledger
 - a public notice pipeline that can point to the Straddie Noticeboard Network
 
@@ -25,10 +26,11 @@ http://localhost:4192
 ## What Is In Here
 
 - `index.html` is the public doorway and page map.
-- `table.html` helps people join a cook-up.
+- `table.html` helps people start a food circle.
+- `garden-mate.html` provides growing prompts for practical local produce buffers.
 - `ledger.html` connects the initiative to the public support and C-Hour ledger pathway.
-- `noticeboard.html` helps trusted groups draft private produce and meal-planning posts.
-- `kitchen-mate.html` provides copyable prompts for ChatGPT or any AI.
+- `noticeboard.html` helps trusted groups draft private produce, pantry, preserving and meal-planning posts.
+- `kitchen-mate.html` provides copyable prompts for ChatGPT or any AI to audit food and plan resilience meals.
 - `sovereign-space-builder.html` turns the Sovereign Space Builder brief into a local digital-twin bridge.
 - `safety.html` keeps trust, care, food safety, permission and cultural protocol visible.
 - `poster-kit.html` holds public-facing poster copy.

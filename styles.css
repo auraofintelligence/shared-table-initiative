@@ -31,6 +31,10 @@ html {
   scroll-behavior: smooth;
 }
 
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
 body {
   background:
     linear-gradient(180deg, rgba(8, 17, 18, 0.98), rgba(13, 28, 28, 0.98)),
@@ -118,7 +122,7 @@ code {
 }
 
 .site-header {
-  background: rgba(8, 17, 18, 0.92);
+  background: var(--ink);
   border-bottom: 1px solid var(--line);
   position: sticky;
   top: 0;
@@ -384,6 +388,21 @@ code {
   max-width: 760px;
 }
 
+.page-hero-split {
+  align-items: center;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 0.92fr) minmax(280px, 0.66fr);
+}
+
+.page-hero-split h1 {
+  max-width: 11ch;
+}
+
+.near-hero {
+  padding-top: 2rem;
+}
+
 .section-heading {
   max-width: 760px;
 }
@@ -574,6 +593,14 @@ a.card:focus .card-link {
   color: var(--soft);
   font-size: 0.92rem;
   padding: 0.75rem 1rem 1rem;
+}
+
+.image-grid {
+  margin-top: 2rem;
+}
+
+.image-grid + .bridge-panel {
+  margin-top: 1rem;
 }
 
 .prompt-box,
@@ -1028,6 +1055,7 @@ textarea {
   }
 
   .split,
+  .page-hero-split,
   .planner-grid {
     grid-template-columns: 1fr;
   }

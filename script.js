@@ -71,7 +71,7 @@ if (plannerForm && plannerOutput) {
       youth: "colourful, social and easy to film",
       elder: "slow, respectful and story-led"
     }[mood];
-    const prompt = `I have ${data.ingredients}. We are planning a ${timingText} shared table for [number] people. Make it ${moodText}. Suggest a simple meal plan using mostly what we have, a short shopping gap list, a prep roster, allergy questions, food safety checks, storage notes, and what to do with leftovers. Keep the tone practical, calm and non-judgemental.`;
+    const prompt = `I have ${data.ingredients}, plus this pantry/freezer/garden list: [add list]. We are planning a ${timingText} shared table for [number] people while fuel and freight pressure are making food more expensive. Make it ${moodText}. Suggest a simple meal plan using mostly what we have, a short essential shopping gap list, a prep/preserving roster, allergy questions, food safety checks, storage notes, and what to do with leftovers. Keep the tone practical, calm and non-judgemental.`;
 
     plannerOutput.innerHTML = `
       <h3>Starter prompt</h3>
@@ -85,13 +85,58 @@ if (plannerForm && plannerOutput) {
   updatePlanner();
 }
 
+const gardenForm = document.querySelector("[data-garden-planner]");
+const gardenOutput = document.querySelector("[data-garden-output]");
+
+const gardenSpaces = {
+  backyard: "a backyard or side yard",
+  balcony: "a balcony, deck or rental-friendly pot setup",
+  school: "a school, club or community garden plot",
+  indoor: "an indoor shelf, bench or microgreens setup"
+};
+
+const gardenFocuses = {
+  quick: "quick herbs and leafy greens for everyday meals",
+  staple: "filling staple crops that suit the space and season",
+  preserve: "crops that can be frozen, dried, pickled, cooked down or shared before spoilage",
+  native: "native or local food plants only where permission, knowledge and safety are clear"
+};
+
+const gardenMaintenance = {
+  low: "low-maintenance care that can survive busy weeks",
+  shared: "a shared roster with small jobs for several people",
+  learning: "a learning project for kids, elders and new growers",
+  intensive: "a higher-yield setup without pretending everyone has unlimited time"
+};
+
+if (gardenForm && gardenOutput) {
+  const updateGarden = () => {
+    const formData = new FormData(gardenForm);
+    const space = formData.get("space") || "backyard";
+    const focus = formData.get("focus") || "quick";
+    const maintenance = formData.get("maintenance") || "low";
+    const prompt = `We have ${gardenSpaces[space]}, and we want to grow ${gardenFocuses[focus]}. Design a practical Garden Mate plan for Straddie / coastal south-east Queensland conditions. Assume ${gardenMaintenance[maintenance]}. Include what to grow first, setup steps, watering and shade notes, weekly jobs, likely harvest timing, pest and heat risks, what to do if the plan starts failing, and how to post surplus to a private Shared Table board without exposing private addresses or cultural knowledge. Keep it grounded and low-waste.`;
+
+    gardenOutput.innerHTML = `
+      <h3>Garden Mate starter prompt</h3>
+      <p>Use this as a first pass, then adjust it with local observation and real grower knowledge.</p>
+      <pre class="generated-prompt" data-copy-source>${escapeHtml(prompt)}</pre>
+      <button class="copy-button" type="button" data-copy-output>Copy prompt</button>
+    `;
+  };
+
+  gardenForm.addEventListener("change", updateGarden);
+  updateGarden();
+}
+
 const boardBuilder = document.querySelector("[data-board-builder]");
 const boardOutput = document.querySelector("[data-board-output]");
 
 const boardTypes = {
-  produce: "We have [produce / pantry item] available. Who can use it, add to it, or help turn it into a simple shared meal?",
+  produce: "We have [produce / pantry / freezer item] available. Who can use it, add to it, preserve it, or help turn it into a simple shared meal?",
   meal: "We are planning a small shared meal from what the group already has. Reply with what you can bring, what timing suits, and any allergy or storage notes.",
   roster: "We need a few small jobs covered: pickup, prep, cooking, containers, delivery, cleanup and leftovers. Pick one job that fits your day.",
+  preserve: "We have surplus [produce / cooked food / pantry item] that needs action. Who can help freeze, dry, preserve, cook, share, label containers, or compost what cannot be used?",
   care: "Quiet care check-in: is anyone short on meals this week, overloaded, or needing a no-fuss drop-off? Reply privately if that feels easier."
 };
 
