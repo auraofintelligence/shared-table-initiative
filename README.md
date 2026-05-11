@@ -33,7 +33,6 @@ http://localhost:4192
 - `kitchen-mate.html` provides copyable prompts for ChatGPT or any AI to audit food and plan resilience meals.
 - `sovereign-space-builder.html` turns the Sovereign Space Builder brief into a local digital-twin bridge.
 - `safety.html` keeps trust, care, food safety, permission and cultural protocol visible.
-- `poster-kit.html` holds public-facing poster copy.
 - `partner-media.html` holds grounded partner and media materials.
 - `source-map.html` records the local source briefs used without copying them into the public site.
 
