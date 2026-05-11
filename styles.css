@@ -832,13 +832,28 @@ textarea {
   padding: 1rem;
 }
 
+.paper-section .output-card {
+  background: var(--paper-2);
+  border-color: var(--line-dark);
+  box-shadow: none;
+}
+
 .output-card h3 {
   color: var(--gold);
+}
+
+.paper-section .output-card h3 {
+  color: #8d5b00;
 }
 
 .output-card p,
 .output-card li {
   color: var(--soft);
+}
+
+.paper-section .output-card p,
+.paper-section .output-card li {
+  color: #43514d;
 }
 
 .output-card ul {
