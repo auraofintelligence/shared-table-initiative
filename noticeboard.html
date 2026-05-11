@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="How Straddie Shared Table notices can move through the Straddie Noticeboard Network.">
-    <title>Noticeboard Bridge | Straddie Shared Table</title>
+    <meta name="description" content="Private group noticeboards for Straddie Shared Table produce sharing, meal planning and trusted local care.">
+    <title>Private Boards | Straddie Shared Table</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Nunito+Sans:wght@700;800;900&display=swap" rel="stylesheet">
@@ -12,42 +12,60 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand-mark" href="index.html"><span>Straddie</span><span>Shared Table</span></a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="table.html">Table</a><a href="ledger.html">Ledger</a><a href="noticeboard.html" aria-current="page">Noticeboard</a><a href="grants.html">Grants</a><a href="kitchen-mate.html">Kitchen Mate</a><a href="sovereign-space-builder.html">Space Builder</a><a href="safety.html">Safety</a><a href="poster-kit.html">Poster Kit</a><a href="partner-media.html">Partner/Media</a><a href="source-map.html">Sources</a></div></nav></header>
+    <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand-mark" href="index.html"><span>Straddie</span><span>Shared Table</span></a><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button><div class="nav-links"><a href="table.html">Join</a><a href="noticeboard.html" aria-current="page">Private Boards</a><a href="kitchen-mate.html">Kitchen Mate</a><a href="safety.html">Trust &amp; Care</a><a href="ledger.html">Ledger</a><a href="grants.html">Organisers</a><a href="poster-kit.html">Posters</a><a href="source-map.html">Sources</a></div></nav></header>
     <main id="main">
       <section class="page-hero">
-        <p class="section-label">Noticeboard bridge</p>
-        <h1>One careful call-out, many public surfaces.</h1>
-        <p class="hero-lede">The Shared Table can publish public-safe markdown notices for surplus, shifts, workshops, safety updates and grant windows.</p>
-        <div class="hero-actions"><a class="button primary" href="https://auraofintelligence.github.io/straddie-noticeboard-network/index.html">Open Noticeboard Network</a><a class="button secondary" href="grants.html">Grant-window notices</a></div>
+        <h1>Use a private board before a public notice.</h1>
+        <p class="hero-lede">Most Shared Table work belongs inside trusted groups: produce lists, meal timing, rosters, preferences, transport, allergies and who quietly needs a hand.</p>
+        <div class="hero-actions"><a class="button primary" href="#builder">Draft a board post</a><a class="button secondary" href="https://auraofintelligence.github.io/straddie-noticeboard-network/index.html">Open public notice network</a></div>
       </section>
       <section class="section split">
         <div>
           <figure class="image-panel">
             <img src="assets/noticeboard-bridge.webp" alt="A public notice screen beside paper notes and produce crates in an island community setting.">
-            <figcaption>Generated image for the noticeboard bridge.</figcaption>
+            <figcaption>Private board first; public screen only when the message is safe to share widely.</figcaption>
           </figure>
-          <details class="prompt-box"><summary>Image model prompt</summary><p class="prompt-text">Photorealistic editorial website section image for a Straddie public noticeboard network connected to community food events. Scene: a small low-power public screen or tablet on a timber wall inside an island community hall or ferry shelter, showing abstract blocks only with no readable text, beside paper notes, produce crates, a tide chart shape, and a small group nearby. It should feel like one public notice can move to screens, phones and paper fallback. No logos, no readable text, no QR codes, no brand names. Practical Australian coastal setting, warm light, 16:9 landscape, high detail.</p></details>
         </div>
-        <aside class="planner-panel">
-          <h3>Draft notice preview</h3>
-          <div class="button-row">
-            <button class="button secondary" type="button" data-notice-choice="surplus">Surplus</button>
-            <button class="button secondary" type="button" data-notice-choice="volunteer">Volunteer</button>
-            <button class="button secondary" type="button" data-notice-choice="safety">Safety</button>
-          </div>
-          <pre class="notice-preview" data-notice-preview></pre>
+        <aside class="bridge-panel">
+          <h3>Good private boards</h3>
+          <ul class="bridge-list">
+            <li>Family or neighbour produce sharing.</li>
+            <li>Club kitchen rosters and working bee meals.</li>
+            <li>Elders, carers or youth support meal planning.</li>
+            <li>Disaster-ready street check-ins and pantry gaps.</li>
+            <li>Flexible meal times for breakfast, brunch, lunch, afternoon, evening, late and split-shift routines.</li>
+          </ul>
         </aside>
       </section>
-      <section class="section paper-section">
-        <div class="section-heading"><p class="section-label">Publishing rules</p><h2>Public calls should be useful and boringly safe.</h2><p>The noticeboard layer should publish what people need to know, not private operational detail. It is the public door, not the whole house.</p></div>
+      <section class="section paper-section" id="builder" aria-labelledby="builder-title">
+        <div class="section-heading">
+          <h2 id="builder-title">Draft a message people can act on.</h2>
+          <p>Choose the message type and copy the result into your trusted group chat, private board, email list or paper note.</p>
+        </div>
+        <div class="planner-grid">
+          <form class="planner-panel" data-board-builder>
+            <div class="control-grid">
+              <label>Message type<select name="type"><option value="produce">Produce available</option><option value="meal">Meal planning</option><option value="roster">Roster help</option><option value="care">Quiet care check-in</option></select></label>
+              <label>Timing style<select name="timing"><option value="flexible">Flexible through the day</option><option value="morning">Morning prep / breakfast</option><option value="brunch">Brunch table</option><option value="midday">Midday meal</option><option value="afternoon">After-school or afternoon</option><option value="evening">Evening cook-up</option><option value="shift">Shift-worker friendly</option></select></label>
+              <label>Group tone<select name="tone"><option value="neighbour">Neighbourly and relaxed</option><option value="club">Organised club kitchen</option><option value="care">Gentle care circle</option><option value="youth">Youth-friendly and direct</option></select></label>
+            </div>
+          </form>
+          <div class="output-card notice-output" data-board-output></div>
+        </div>
+      </section>
+      <section class="section" aria-labelledby="public-title">
+        <div class="section-heading">
+          <h2 id="public-title">When a post goes public, make it smaller.</h2>
+          <p>A public notice should only carry what strangers need: what is happening, when, where, how to contact the organiser, when the notice expires and what safety limits apply.</p>
+        </div>
         <div class="grid three">
-          <article class="card ok"><h3>Good public content</h3><p>Times, locations, expiry dates, safe donation categories, general volunteer calls and public contact paths.</p></article>
-          <article class="card warning"><h3>Keep private</h3><p>Private addresses, vulnerable people, unverified claims, cultural knowledge, medical information and raw donor lists.</p></article>
-          <article class="card neutral"><h3>Useful link</h3><p>Grant windows can publish as noticeboard posts, then link back to the Grants Lab for deeper preparation.</p></article>
+          <article class="card ok"><h3>Public-safe</h3><p>General calls for produce, helpers, clean containers, working bee meals or open cook-up times.</p></article>
+          <article class="card warning"><h3>Keep private</h3><p>Addresses, health details, vulnerable people, private donor lists, exact household needs and unverified claims.</p></article>
+          <article class="card neutral"><h3>Paper fallback</h3><p>Print simple versions for kitchens, clubs, ferry noticeboards or offline days.</p></article>
         </div>
       </section>
     </main>
-    <footer class="site-footer"><div><p>Noticeboard bridge for Straddie Shared Table.</p><p class="footer-note">Every public notice needs consent, expiry and a privacy check.</p></div><a href="index.html">Home</a></footer>
+    <footer class="site-footer"><div><p>Private Boards for Straddie Shared Table.</p><p class="footer-note">A good board protects people first and publishes less than it knows.</p></div><a href="index.html">Home</a></footer>
     <button class="top-button" type="button" data-to-top aria-label="Back to top">Top</button>
     <script src="script.js"></script>
   </body>

@@ -25,60 +25,110 @@ const plannerOutput = document.querySelector("[data-kitchen-output]");
 
 const plannerData = {
   leafy: {
-    meal: "Shared greens bowl with herbs, citrus dressing and toasted seed crunch.",
-    urgency: "Use tender leaves first. Keep a clear discard rule for wilted or unsafe produce.",
-    action: "Ask the noticeboard for grains, eggs or legumes to turn greens into a filling meal."
+    ingredients: "leafy greens and herbs",
+    note: "Use tender leaves first. Keep a clear discard rule for wilted or unsafe produce."
   },
   fruit: {
-    meal: "Island fruit platter, chilled compote or low-waste preserve session.",
-    urgency: "Sort ripe fruit today, wash only what will be used, and keep bruised fruit separate.",
-    action: "Invite a small jam, chutney or dessert crew before the surplus drops in quality."
+    ingredients: "ripe fruit",
+    note: "Sort ripe fruit today, wash only what will be used, and keep bruised fruit separate."
   },
   fish: {
-    meal: "Simple BBQ fish with garden herbs, salad and labelled allergen notes.",
-    urgency: "This needs a strict cold-chain check, clear timing and food-safe handling.",
-    action: "Only publish a fish call-out when storage, prep space and responsible cooks are confirmed."
+    ingredients: "fresh fish or seafood",
+    note: "This needs a strict cold-chain check, clear timing and food-safe handling."
   },
   pantry: {
-    meal: "Soup, dhal, fried rice or tray bake built from pantry staples and fresh add-ins.",
-    urgency: "Check best-before dates, packaging condition and allergen labels before sharing.",
-    action: "Pair shelf-stable food with fresh surplus so the table feels generous, not leftover-driven."
+    ingredients: "pantry staples",
+    note: "Check best-before dates, packaging condition and allergen labels before sharing."
   }
 };
+
+const escapeHtml = (value) => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
 
 if (plannerForm && plannerOutput) {
   const updatePlanner = () => {
     const formData = new FormData(plannerForm);
     const surplus = formData.get("surplus") || "leafy";
+    const timing = formData.get("timing") || "flexible";
     const mood = formData.get("mood") || "warm";
-    const contribution = formData.get("contribution") || "prep";
     const data = plannerData[surplus];
+    const timingText = {
+      flexible: "flexible through the day",
+      breakfast: "breakfast",
+      brunch: "brunch",
+      lunch: "lunch",
+      afternoon: "afternoon or after-school",
+      evening: "evening",
+      late: "late or shift-worker friendly"
+    }[timing] || "flexible through the day";
     const moodText = {
       warm: "warm, simple and family-friendly",
       quick: "quick, practical and low-mess",
       youth: "colourful, social and easy to film",
       elder: "slow, respectful and story-led"
     }[mood];
-    const contributionText = {
-      prep: "prep and cleanup",
-      grow: "growing or harvesting",
-      teach: "teaching, story or skill sharing",
-      transport: "pickup, delivery or setup"
-    }[contribution];
+    const prompt = `I have ${data.ingredients}. We are planning a ${timingText} shared table for [number] people. Make it ${moodText}. Suggest a simple meal plan using mostly what we have, a short shopping gap list, a prep roster, allergy questions, food safety checks, storage notes, and what to do with leftovers. Keep the tone practical, calm and non-judgemental.`;
 
     plannerOutput.innerHTML = `
-      <h3>${data.meal}</h3>
-      <p>This version should feel ${moodText}.</p>
-      <ul>
-        <li><strong>Safety gate:</strong> ${data.urgency}</li>
-        <li><strong>Noticeboard call-out:</strong> ${data.action}</li>
-        <li><strong>Contribution record:</strong> Log ${contributionText} as a plain community contribution, not a financial promise.</li>
-      </ul>
+      <h3>Starter prompt</h3>
+      <p>${escapeHtml(data.note)}</p>
+      <pre class="generated-prompt" data-copy-source>${escapeHtml(prompt)}</pre>
+      <button class="copy-button" type="button" data-copy-output>Copy prompt</button>
     `;
   };
 
   plannerForm.addEventListener("change", updatePlanner);
   updatePlanner();
+}
+
+const boardBuilder = document.querySelector("[data-board-builder]");
+const boardOutput = document.querySelector("[data-board-output]");
+
+const boardTypes = {
+  produce: "We have [produce / pantry item] available. Who can use it, add to it, or help turn it into a simple shared meal?",
+  meal: "We are planning a small shared meal from what the group already has. Reply with what you can bring, what timing suits, and any allergy or storage notes.",
+  roster: "We need a few small jobs covered: pickup, prep, cooking, containers, delivery, cleanup and leftovers. Pick one job that fits your day.",
+  care: "Quiet care check-in: is anyone short on meals this week, overloaded, or needing a no-fuss drop-off? Reply privately if that feels easier."
+};
+
+const timingLines = {
+  flexible: "Timing is flexible through the day. Morning, brunch, afternoon, evening and late pickup are all valid.",
+  morning: "Morning prep or breakfast timing preferred, but say if another time works better.",
+  brunch: "Brunch timing is welcome. Think late morning, easy prep, and food that can stretch into lunch if needed.",
+  midday: "Midday meal timing is the starting point, with room for earlier prep or later pickup.",
+  afternoon: "After-school or afternoon timing is the starting point. Keep jobs small and realistic.",
+  evening: "Evening cook-up timing is the starting point. Late pickup can be arranged inside the trusted group.",
+  shift: "Shift-worker friendly timing is welcome. Early pickup, late pickup or split prep can all count."
+};
+
+const toneLines = {
+  neighbour: "Keep it neighbourly, relaxed and clear.",
+  club: "Keep it organised, practical and easy for a club kitchen to follow.",
+  care: "Keep it gentle, private and low-pressure.",
+  youth: "Keep it direct, friendly and easy for younger helpers to act on."
+};
+
+if (boardBuilder && boardOutput) {
+  const updateBoard = () => {
+    const formData = new FormData(boardBuilder);
+    const type = formData.get("type") || "produce";
+    const timing = formData.get("timing") || "flexible";
+    const tone = formData.get("tone") || "neighbour";
+    const message = `${boardTypes[type]}\n\n${timingLines[timing]}\n\n${toneLines[tone]}\n\nPlease include: what you are offering or need, when it expires, allergy or storage notes, who is responsible, and whether any part must stay private.`;
+
+    boardOutput.innerHTML = `
+      <h3>Private board draft</h3>
+      <pre class="generated-prompt" data-copy-source>${escapeHtml(message)}</pre>
+      <button class="copy-button" type="button" data-copy-output>Copy message</button>
+    `;
+  };
+
+  boardBuilder.addEventListener("change", updateBoard);
+  updateBoard();
 }
 
 const noticeButtons = document.querySelectorAll("[data-notice-choice]");
@@ -131,3 +181,26 @@ if (noticeButtons.length && noticePreview) {
 
   setNotice("surplus");
 }
+
+document.addEventListener("click", async (event) => {
+  const button = event.target.closest("[data-copy-prompt], [data-copy-output]");
+  if (!button) return;
+
+  const promptText = button.closest(".prompt-card")?.querySelector("p")?.textContent
+    || button.closest(".output-card")?.querySelector("[data-copy-source]")?.textContent;
+
+  if (!promptText) return;
+
+  try {
+    await navigator.clipboard.writeText(promptText.trim());
+    const originalText = button.textContent;
+    button.textContent = "Copied";
+    button.classList.add("is-copied");
+    window.setTimeout(() => {
+      button.textContent = originalText;
+      button.classList.remove("is-copied");
+    }, 1400);
+  } catch (error) {
+    button.textContent = "Select text";
+  }
+});

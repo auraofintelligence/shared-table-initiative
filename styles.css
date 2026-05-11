@@ -208,6 +208,10 @@ code {
   min-height: 76svh;
 }
 
+.home-hero {
+  min-height: 82svh;
+}
+
 .hero-inner,
 .section,
 .site-footer,
@@ -226,8 +230,21 @@ code {
   padding-top: 4rem;
 }
 
+.home-hero .hero-inner {
+  gap: 2rem;
+  justify-content: space-between;
+}
+
 .hero-copy {
   max-width: 720px;
+}
+
+.home-hero .hero-copy {
+  max-width: 760px;
+}
+
+.home-hero h1 {
+  max-width: 13ch;
 }
 
 .hero-copy h1 {
@@ -254,6 +271,59 @@ code {
   color: rgba(247, 251, 248, 0.72);
   font-size: 0.9rem;
   margin-top: 1rem;
+}
+
+.hero-board,
+.cookup-panel {
+  background: rgba(8, 17, 18, 0.78);
+  border: 1px solid rgba(115, 225, 212, 0.28);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  flex: 0 1 360px;
+  padding: 1.05rem;
+}
+
+.hero-board h2,
+.cookup-panel h2 {
+  color: var(--gold);
+  font-size: 1.28rem;
+  max-width: none;
+}
+
+.board-row {
+  border-top: 1px solid rgba(232, 244, 237, 0.12);
+  display: grid;
+  gap: 0.28rem;
+  padding: 0.82rem 0;
+}
+
+.board-row:first-of-type {
+  margin-top: 0.75rem;
+}
+
+.board-row span {
+  color: var(--muted);
+  font-family: var(--heading);
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.board-row strong {
+  color: var(--text);
+  font-family: var(--body);
+  font-size: 0.98rem;
+  line-height: 1.35;
+}
+
+.board-link {
+  color: var(--aqua);
+  display: inline-flex;
+  font-family: var(--heading);
+  font-weight: 900;
+  margin-top: 0.6rem;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.18em;
 }
 
 .button {
@@ -383,11 +453,49 @@ code {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.compact-grid .card {
+  min-height: 13rem;
+}
+
+.action-rail {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.action-card {
+  background: rgba(23, 46, 47, 0.78);
+  border: 1px solid rgba(115, 225, 212, 0.18);
+  border-radius: 8px;
+  color: inherit;
+  display: grid;
+  min-height: 16rem;
+  padding: 1.15rem;
+  text-decoration: none;
+}
+
+.action-card:hover,
+.action-card:focus {
+  border-color: rgba(115, 225, 212, 0.52);
+  outline: none;
+}
+
+.action-card h3 {
+  color: var(--text);
+}
+
+.action-card p {
+  color: var(--soft);
+  margin-top: 0.75rem;
+}
+
 .card,
 .step-card,
 .notice-card,
 .source-panel,
-.planner-panel {
+.planner-panel,
+.prompt-card {
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -410,7 +518,8 @@ a.card:focus {
 
 .paper-section .card,
 .paper-section .step-card,
-.paper-section .source-panel {
+.paper-section .source-panel,
+.paper-section .prompt-card {
   background: var(--paper-2);
   border-color: var(--line-dark);
   box-shadow: none;
@@ -419,13 +528,15 @@ a.card:focus {
 .card h3,
 .step-card h3,
 .notice-card h3,
-.source-panel h3 {
+.source-panel h3,
+.prompt-card h3 {
   color: var(--text);
 }
 
 .paper-section .card h3,
 .paper-section .step-card h3,
-.paper-section .source-panel h3 {
+.paper-section .source-panel h3,
+.paper-section .prompt-card h3 {
   color: var(--text-dark);
 }
 
@@ -511,6 +622,10 @@ a.card:focus .card-link {
 }
 
 .paper-section .source-panel li {
+  color: #43514d;
+}
+
+.paper-section .bridge-list {
   color: #43514d;
 }
 
@@ -601,6 +716,10 @@ a.card:focus .card-link {
 .bridge-list li::marker,
 .check-list li::marker {
   color: var(--leaf);
+}
+
+.paper-section .bridge-list li::marker {
+  color: #007966;
 }
 
 .check-list {
@@ -702,6 +821,57 @@ textarea {
   padding-left: 1.15rem;
 }
 
+.prompt-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2rem;
+}
+
+.prompt-card {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.prompt-card p {
+  color: var(--soft);
+  margin: 0;
+}
+
+.paper-section .prompt-card p {
+  color: #43514d;
+}
+
+.copy-button {
+  align-self: end;
+  background: rgba(115, 225, 212, 0.12);
+  border: 1px solid rgba(115, 225, 212, 0.42);
+  border-radius: 8px;
+  color: var(--aqua);
+  cursor: pointer;
+  font-family: var(--heading);
+  font-size: 0.92rem;
+  font-weight: 900;
+  min-height: 2.55rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.paper-section .copy-button {
+  background: rgba(0, 121, 102, 0.08);
+  border-color: rgba(0, 121, 102, 0.24);
+  color: #007966;
+}
+
+.copy-button.is-copied {
+  background: var(--leaf);
+  border-color: var(--leaf);
+  color: var(--ink);
+}
+
+.notice-output {
+  white-space: pre-wrap;
+}
+
 .notice-preview {
   background: rgba(8, 17, 18, 0.52);
   border: 1px solid rgba(115, 225, 212, 0.22);
@@ -713,6 +883,26 @@ textarea {
   overflow-x: auto;
   padding: 1rem;
   white-space: pre-wrap;
+}
+
+.generated-prompt {
+  background: rgba(8, 17, 18, 0.62);
+  border: 1px solid rgba(115, 225, 212, 0.2);
+  border-radius: 8px;
+  color: var(--soft);
+  font-family: var(--body);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.85rem 0;
+  overflow-x: auto;
+  padding: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.paper-section .generated-prompt {
+  background: rgba(8, 17, 18, 0.06);
+  border-color: rgba(23, 33, 31, 0.16);
+  color: #263633;
 }
 
 .warning {
@@ -827,7 +1017,9 @@ textarea {
   }
 
   .grid.three,
-  .grid.four {
+  .grid.four,
+  .action-rail,
+  .prompt-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -838,6 +1030,16 @@ textarea {
   .split,
   .planner-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-hero .hero-inner {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-board {
+    flex-basis: auto;
+    width: 100%;
   }
 }
 
@@ -872,7 +1074,9 @@ textarea {
   .grid.two,
   .grid.three,
   .grid.four,
-  .flow-line {
+  .flow-line,
+  .action-rail,
+  .prompt-grid {
     grid-template-columns: 1fr;
   }
 
